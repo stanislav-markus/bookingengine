@@ -79,6 +79,8 @@ class BookingInfo(models.Model):
 class BlockDay(models.Model):
     booking_info = models.OneToOneField(
         BookingInfo,
+        blank=True,
+        null=True,
         on_delete=models.CASCADE,
         related_name='block_days'
     )
