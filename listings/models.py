@@ -74,3 +74,15 @@ class BookingInfo(models.Model):
             obj = self.hotel_room_type
             
         return f'{obj} {self.price}'
+
+
+class BlockDay(models.Model):
+    booking_info = models.OneToOneField(
+        BookingInfo,
+        on_delete=models.CASCADE,
+        related_name='block_days'
+    )
+    date = models.DateField()
+
+    def __str__(self):
+        return f'{self.booking_info} {self.date}'
